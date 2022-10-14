@@ -2,6 +2,7 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 const app = express();
+const port = process.env.PORT || 8000;
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -121,6 +122,6 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(3000, () => {
-    console.log("Listining");
+app.listen(port, () => {
+    console.log(`Listining on at ${port}`);
 })
