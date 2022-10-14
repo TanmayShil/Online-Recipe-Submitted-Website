@@ -1,0 +1,27 @@
+<div class="text-center">
+    <h1 class="display-5 fw-bold">Login</h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form action="/login" method="POST" class="validated-form" novalidate>
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                </div>
+                <div class="col-12">
+                    <% if(!currentUser){%>
+                        <button class="btn btn-success">Login</button>
+                        <p>Don't have an account? <a href="/register">Register</a></p>
+                        <% }else{%>
+                            <a href="/logout" class="btn btn-secondary">Logout</a>
+                            <% } %>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

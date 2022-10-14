@@ -1,0 +1,239 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+        <img src="/img/hero-image.png" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy"
+            alt="Cooking With Node.js">
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">Huge selection of delicios recipe ideas</h1>
+        <p class="lead">
+            Explore our huge selection of delicious recipe ideas including; easy desserts, delicious vegan and
+            vegetarian dinner ideas, gorgeous pasta recipes, quick bakes, family-friendly meals and gluten-free recipes.
+        </p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/explore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Explore Latest</a>
+            <a href="/explore-random" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Show Random</a>
+        </div>
+    </div>
+</div>
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+    <% if(categories !='' ){ %>
+        <% categories.forEach(function(category, index){ %>
+            <a href="/categories/<%- category.name %>" class="col text-center category__link">
+                <div class="category__img shadow">
+                    <img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+                </div>
+                <div class="pt-1">
+                    <%- category.name %>
+                </div>
+            </a>
+            <% }) %>
+                <% } %>
+                    <a href="/categories" class="col text-center category__link">
+                        <div class="category__img shadow">
+                            <img src="img/view-all.jpg" alt="View All Categories" loading="lazy">
+                        </div>
+                        <div class="pt-1">View All</div>
+                    </a>
+</div>
+<!-- Latest Start -->
+
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2 class="heading5">Latest<span>Recipe's</span></h2>
+        <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+    <br>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(food !='' ){ %>
+            <% food.latest.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="uploads/<%= recipe.image%>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <div class="pt-1">
+                        <%= recipe.name %>
+                    </div>
+                </a>
+                <% }) %>
+                    <% } else { %>
+                        <p>No items found.</p>
+                        <% } %>
+    </div>
+</section>
+<!-- latest end -->
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2 class="heading5">Indian<span>Recipe's</span></h2>
+        <a href="/categories/Indian" class="ms-auto">View More</a>
+    </div>
+    <br>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(typeof food.indian !=='undefined' && food.indian.length> 0){ %>
+            <% food.indian.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="uploads/<%= recipe.image%>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <div class="pt-1">
+                        <%= recipe.name %>
+                    </div>
+                </a>
+                <% }) %>
+                    <% } else { %>
+                        <p>No items found.</p>
+                        <% } %>
+    </div>
+</section>
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2 class="heading5">Chinese<span>Recipe's</span></h2>
+        <a href="/categories/Chinese" class="ms-auto">View More</a>
+    </div>
+    <br>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(typeof food.chinese !='' ){ %>
+            <% food.chinese.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="uploads/<%= recipe.image%>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <div class="pt-1">
+                        <%= recipe.name %>
+                    </div>
+                </a>
+                <% }) %>
+                    <% } else { %>
+                        <p>No items found.</p>
+                        <% } %>
+    </div>
+</section>
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2 class="heading5">Thai<span>Recipe's</span></h2>
+        <a href="/categories/Thai" class="ms-auto">View More</a>
+    </div>
+
+    <br>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(typeof food.thai !='' ){ %>
+            <% food.thai.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="uploads/<%= recipe.image%>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <div class="pt-1">
+                        <%= recipe.name %>
+                    </div>
+                </a>
+                <% }) %>
+                    <% } else { %>
+                        <p>No items found.</p>
+                        <% } %>
+    </div>
+</section>
+
+
+<section class="px-4 py-5 my-5 text-center" id="submit">
+    <img src="/img/publish-recipe.png" class="d-block mx-auto mb-4 img-fluid" alt="publish your recipe" width="566"
+        height="208" loading="lazy">
+    <h1 class="display-5 fw-bold">Publish your recipe for Free today</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Publish your Recipe in front og thousands of people for free.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/submit-recipe" class="btn btn-primary btn-dark btn-lg">Submit Recipe</a>
+        </div>
+    </div>
+</section>
+<!-- about section -->
+<section id="aboutus">
+    <div class="heading">
+        <h3 class="heading5">About<span>Us</span></h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <h4>Why Choose Us?</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci totam, consectetur praesentium
+                    repellat, beatae fugiat blanditiis fugit est doloremque aliquid ducimus modi amet eligendi, ipsum
+                    rerum. Explicabo eligendi repellendus eaque.</p>
+                <h4>Who Are We</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, voluptatibus laudantium qui non
+                    recusandae esse molestiae vitae quisquam vero autem?</p>
+                <h4>What We Do</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit odit blanditiis, cupiditate nemo
+                    aperiam cumque amet fugiat consequatur tempora sapiente.</p>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4" style="margin-top: 5%">
+                <img src="/img/logo2.jpg" class="img-fluid" alt="logo">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- footer section -->
+<section id="contact">
+    <div class="footer">
+        <div class="heading">
+            <h3 class="heading5">Contact<span>Us</span></h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h4>Social Links</h4>
+                    <a href="//www.facebook.com" id="icons" class="bi bi-facebook"></a>
+                    <a href="//www.linkdin.com" id="icons" class="bi bi-linkedin"></a>
+                    <a href="//www.snapchat.com/" id="icons" class="bi bi-snapchat"></a>
+                    <a href="//www.instagram.com" id="icons" class="bi bi-instagram"></a>
+                    <a href="//www.twitter.com" id="icons" class="bi bi-twitter"></a>
+                    <br>
+                    <a href="" id="icons"><img src="img/images_play-store.png" alt=""
+                            style="width: 100px; height: 40px;"></a>
+                    <a href="" id="icons"><img src="img/images_app-store.png" alt=""
+                            style="width: 100px; height: 40px;"></a>
+                </div>
+                <br>
+                <div class="col-sm-5">
+                    <h4>Leave a comment</h4>
+                    <form action="/comment" method="POST">
+                        <div class="row">
+                            <div class="col-sm-4">Name:*</div>
+                            <div class="col-sm-5">
+                                <input type="text" name="name" class="form-control" spellcheck="false"
+                                    data-ms-editor="true">
+                            </div>
+                            <div class="col-sm-4">Email address:*</div>
+                            <div class="col-sm-5">
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                            <div class="col-sm-4">Mobile No:</div>
+                            <div class="col-sm-5">
+                                <input type="text" name="mobile" class="form-control" spellcheck="false"
+                                    data-ms-editor="true">
+                            </div>
+                            <div class="col-sm-4">Message:*</div>
+                            <div class="col-sm-5">
+                                <input type="text" name="message" class="form-control" spellcheck="false"
+                                    data-ms-editor="true">
+                            </div>
+                        </div>
+                        <input type="submit" style="align-items: center;" value="Submit" name="save"
+                            class="btn btn-success">
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Contact Details</h4>
+                    <br>
+                    <i class="bi bi-telephone-fill"></i>
+                    Phone: +91 9876543210
+                    <br>
+                    <i class="bi bi-envelope-fill"></i>
+                    Email: resmake@gmail.com
+                    <br>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Address: Sonamukhi, India - 722207
+                </div>
+            </div>
+        </div>
+</section>
